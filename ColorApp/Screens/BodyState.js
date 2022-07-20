@@ -18,10 +18,10 @@ const CK_enzyme =
         chartConfig = {{
           backgroundColor :"#e26a05",
           backgroundGradientForm:'#fb8c00',
-          backgroundGradientTo:"#fff",
+          backgroundGradientTo:"#90f8f9",
           decimalPlaces:2,
           color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+          labelColor: (opacity = 1) => `rgba(200, 255, 255, ${opacity})`,
           style:{borderRadius:16},
           propsForDots:{r:"6",strokeWidth:"2",stroke:"#ffa726"}
         }}
@@ -86,7 +86,7 @@ export default class App extends Component {
 
     return (
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={{ paddingTop: 25 }}>
+        <ScrollView contentContainerStyle={{ paddingTop: 15 }}>
           <Accordion
             align="bottom"
             activeSections={activeSections}
@@ -105,17 +105,6 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  BodyState_Block:{
-      color:"black",
-      fontSize:25,
-      textAlign:'center',
-      textAlignVertical:'center',
-      backgroundColor:"white",
-      width: Dimensions.get("window").width/1.01,
-      height:Dimensions.get("window").height/10,
-      borderRadius:12,
-  },
-  //collapsible
   container: {
     flex: 1,
     backgroundColor: '#f1f2e3',
@@ -124,15 +113,15 @@ const styles = StyleSheet.create({
 
   header: { 
     backgroundColor: '#F5FCFF',
-    padding: 25,
-    marginVertical: 10,
+    padding: 30,
+    marginVertical: 30,
     marginHorizontal: 5,
     borderRadius:20,
   },
   headerText: {
     textAlign: 'center',
     fontSize: 30,
-    fontWeight: '500',
+    fontWeight: '700',
   },
   content: {
     padding: 10,
