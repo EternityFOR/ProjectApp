@@ -1,131 +1,166 @@
-import React, {Component} from 'react';
-import { Switch,ScrollView,TouchableOpacity,StyleSheet, Text, View, Image,Dimensions} from 'react-native';
-import {LineChart} from "react-native-chart-kit";
-import Constants from 'expo-constants';
-import * as Animatable from 'react-native-animatable';
-import Collapsible from 'react-native-collapsible';
-import Accordion from 'react-native-collapsible/Accordion';
+import * as React from 'react';
+import { ScrollView,TouchableOpacity,StyleSheet, Text, View,Dimensions,Image} from 'react-native';
+import { Root, Popup } from 'popup-ui';
 
-const CK_enzyme =
-  <LineChart data={{
-          labels:["Sun", "Mon","Tue","Wed","Thu","Fri","Sat"],
-          datasets:[{data:[80,60,70,75,90,100]}]
-        }}
-        width = {Dimensions.get("window").width}
-        height = {220}
-        yAxisInterval = {1}
-        yAxisSuffix = "kda"
-        chartConfig = {{
-          backgroundColor :"#e26a05",
-          backgroundGradientForm:'#fb8c00',
-          backgroundGradientTo:"#90f8f9",
-          decimalPlaces:2,
-          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          labelColor: (opacity = 1) => `rgba(200, 255, 255, ${opacity})`,
-          style:{borderRadius:16},
-          propsForDots:{r:"6",strokeWidth:"2",stroke:"#ffa726"}
-        }}
-        bezier
-        style = {{marginVertical: 10,borderRadius:16}}/>
+function BodyState ({navigation}) {
+    return(
+ <Root>
+  <ScrollView>
+    <View>
+        <TouchableOpacity
+            onPress={() =>
+              Popup.show({
+                type: 'Success',
+                title: 'Standard CK-enzyme Value',
+                button: true,
+                textBody: 'Congrats! You are in good shape ',
+                buttonText: 'OK',
+                callback: () => Popup.hide()
+              })
+            }
+          >
+            <View style = {styles.Profile_Block}>
+              <Text style = {styles.TimeText}>2022-6-21</Text>
+              <Text style = {styles.StandardText}>
+              <Image
+                style={styles.TinyLogo}
+                source={require('../src/assets/Normal.png')}
+              />NORMAL
+              </Text>
+              <Text style = {styles.TimeText}>14 : 52 </Text>
+            </View>
+        </TouchableOpacity>
+    </View>
 
-const BodyState = [
-  {
-    title: 'Current CK-enzyme Value = 100',
-    content: CK_enzyme,
-  },
-  {
-    title: 'RMS : High Risk',
-  },
-  {
-    title: 'Dangerous!!',
-  },
-  {
-    title: 'Suggestions:Reduce training volume',
-  },
-];
+    <View>
+        <TouchableOpacity
+            onPress={() =>
+              Popup.show({
+                type: 'Warning',
+                title: 'CK-enzyme value critical level',
+                button: true,
+                textBody: 'Warning! Please reduce practice value ',
+                buttonText: 'OK',
+                callback: () => Popup.hide(),
+              })
+            }
+          >
+            <View style = {styles.Profile_Block}>
+              <Text style = {styles.TimeText}>2022-6-25</Text>
+              <Text style = {styles.WarningText}>
+                <Image
+                style={styles.TinyLogo}
+                source={require('../src/assets/Warning.png')}
+                /> WARNING
+              </Text> 
+              <Text style = {styles.TimeText}>15 : 48 </Text>
+            </View>
+        </TouchableOpacity>
+    </View>
 
-export default class App extends Component {
-  state = {
-    activeSections: [],
-    collapsed: true,
-    multipleSelect: false,
-  };
+    <View>
+        <TouchableOpacity
+            onPress={() =>
+              Popup.show({
+                type: 'Danger',
+                title: 'Abnormal CK-enzyme value',
+                button: true,
+                textBody: 'Danger! Please seek medical assistance as soon as possible ',
+                buttonText: 'OK',
+                callback: () => Popup.hide(),
+              })
+            }
+          >
+            <View style = {styles.Profile_Block}>
+              <Text style = {styles.TimeText}>2022-6-30</Text>
+              <Text style = {styles.DangerText}>
+                <Image
+                style={styles.TinyLogo}
+                source={require('../src/assets/Danger.png')}
+                /> DANGER
+              </Text>
+              <Text style = {styles.TimeText}>11 : 32 </Text>
+            </View>
+        </TouchableOpacity>
+    </View>
 
-  setSections = (sections) => {
-    this.setState({
-      activeSections: sections.includes(undefined) ? [] : sections,
-    });
-  };
+    <View>
+        <TouchableOpacity
+            onPress={() =>
+              Popup.show({
+                type: 'Success',
+                title: 'Standard CK-enzyme Value',
+                button: true,
+                textBody: 'Congrats! You are in good shape ',
+                buttonText: 'OK',
+                callback: () => Popup.hide(),
+              })
+            }
+          >
+            <View style = {styles.Profile_Block}>
+              <Text style = {styles.TimeText}>2022-7-3</Text>
+              <Text style = {styles.StandardText}>
+              <Image
+                style={styles.TinyLogo}
+                source={require('../src/assets/Normal.png')}
+              />NORMAL
+              </Text> 
+              <Text style = {styles.TimeText}>15 : 20 </Text>
+            </View>
+        </TouchableOpacity>
+    </View>
+  </ScrollView>
+</Root>
 
-  renderHeader = (section, _, isActive) => {
-    return (
-      <Animatable.View
-        duration={400}
-        style={[styles.header, isActive ? styles.active : styles.inactive]}
-        transition="backgroundColor"
-      >
-        <Text style={styles.headerText}>{section.title}</Text>
-      </Animatable.View>
-    );
-  };
-
-  renderContent(section, _, isActive) {
-    return (
-      <Animatable.View
-        duration={400}
-        style={[styles.content, isActive ? styles.active : styles.inactive]}
-        transition="backgroundColor"
-      >
-        <Text>{section.content}</Text>
-      </Animatable.View>
-    );
-  }
-
-  render() {
-    const { activeSections } = this.state;
-
-    return (
-      <View style={styles.container}>
-        <ScrollView contentContainerStyle={{ paddingTop: 15 }}>
-          <Accordion
-            align="bottom"
-            activeSections={activeSections}
-            sections={BodyState}
-            touchableComponent={TouchableOpacity}
-            renderHeader={this.renderHeader}
-            renderContent={this.renderContent}
-            duration={400}
-            onChange={this.setSections}
-            renderAsFlatList={false}
-          />
-        </ScrollView>
-      </View>
-    );
-  }
+  )
 }
 
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f1f2e3',
-    paddingTop: Constants.statusBarHeight,
+    Profile_Block:{
+        paddingHorizontal: 8,
+        paddingVertical: Dimensions.get("window").height/20,
+        borderRadius: 10,
+        backgroundColor: "#fff",
+        alignSelf: "center",
+        marginVertical: "5%",
+        marginBottom: 6,
+        minWidth: "95%",
+    },
+    TimeText:
+    {
+      textAlign: "left",
+      fontSize:20,
+      fontWeight:'500',
+    },
+    StandardText:
+    {
+      textAlign: "right",
+      fontSize:35,
+      fontWeight:'780',
+      color:"#196e08",
+      letterSpacing:4,
+    },
+    WarningText:
+    {
+      textAlign: "right",
+      fontSize:35,
+      fontWeight:'780',
+      color:"#ffad0f",
+      letterSpacing:0.5,
+    },
+    DangerText:
+    {
+      textAlign: "right",
+      fontSize:35,
+      fontWeight:'780',
+      color:"#ff491a",
+      letterSpacing:4,
+    },
+    TinyLogo: {
+    width: 50,
+    height: 50,
   },
+});
 
-  header: { 
-    backgroundColor: '#F5FCFF',
-    padding: 30,
-    marginVertical: 30,
-    marginHorizontal: 5,
-    borderRadius:20,
-  },
-  headerText: {
-    textAlign: 'center',
-    fontSize: 30,
-    fontWeight: '700',
-  },
-  content: {
-    padding: 10,
-    backgroundColor: '#fff',
-  },
-
-})
+export default BodyState;
