@@ -1,120 +1,74 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View,Dimensions,TextInput} from 'react-native';
-import Genders from '../OptionBar/Option_Gender';
+import { StyleSheet, Text, View,Dimensions,TextInput,ScrollView,TouchableHighlight,TouchableOpacity,Image} from 'react-native';
 
-export default class App extends Component{
-  constructor(props){
-    super(props);
-    this.gender = 'Male';
-    this.age = '25';
-    this.height = '180';
-    this.weight = '70';
-    this.sports = 'Badminton';
-    this.handleText = (text) => {console.log(text);};
-  }
+class Profile extends Component {
   render(){
-    return(
-      <View style={{flex:1,justifyContent:'space-around',alignItems: 'center', backgroundColor:'#d2f9f5'}}>
-        <View style = {styles.Profile_Block}>
-          <View>
-            <Text style = {styles.TitleText}>Gender:</Text>
-          </View>
-          <View>
-          <Genders />
-          </View>
+    return (
+      <View>
+      <ScrollView>
+        <View style = {{padding:10,width:'100%',backgroundColor:'#000',height:150}}>
+          <TouchableOpacity>
+            <Image source={require('../src/assets/Black.jpg')}
+            style = {{width : 50,height :  50}}></Image>
+            <View></View>
+            <View></View>
+          </TouchableOpacity>
+        </View>
+        <View style = {{alignItems:'center'}}>
+            <Image source = {require('../src/assets/User.png')} style = {{width:130,height:130, borderRadius:100, marginTop:-70}}></Image>
+            <Text style = {{fontSize:25,fontWeight:'bold',padding:10}}> Greater Bay </Text>
+            <Text style = {{fontSize:15,fontWeight:'bold',color:'grey'}}>23,Male </Text>
+        </View>
+
+        <View style = {styles.BlockStyle}>
+        <Image source = {require('../src/assets/Height.png')} 
+        style = {{width:50,height:50}}></Image>
+        <Text style= {styles.TextStyle}> Height:180cm </Text>
+        </View>
+
+
+        <View style = {styles.BlockStyle}>
+        <Image source = {require('../src/assets/Weight.png')} 
+        style = {{width:50,height:50}}></Image>
+        <Text style= {styles.TextStyle}> Weight:75kg </Text>
+        </View>
+
+
+        <View style = {[styles.BlockStyle,{marginBottom:60}]}>
+        <Image source = {require('../src/assets/Sport.png')} 
+        style = {{width:50,height:50}}></Image>
+        <Text style= {styles.TextStyle}> Sport:Badminton </Text>
+        </View>
+
+      </ScrollView>
       </View>
-
-      <View style = {[styles.Profile_Block]}>
-          <View>
-            <Text style = {styles.TitleText}>Age:</Text>
-          </View>
-
-          <View>
-            <TextInput
-            style = {styles.InputText}
-            placeholder = {this.age}
-            placeholderTextColor = 'black'
-            onChangeText={(text) => this.handleText(text)}
-            blurOnSubmit
-            keyboardType='numeric'/> 
-          </View>
-      </View>
-
-      <View style = {[styles.Profile_Block]}>
-          <View>
-            <Text style = {styles.TitleText}>Height:</Text>
-          </View>
-
-          <View>
-            <TextInput
-            style = {styles.InputText}
-            placeholder = {this.height}
-            placeholderTextColor = 'black'
-            onChangeText={(text) => this.handleText(text)}
-            blurOnSubmit
-            keyboardType='numeric'/> 
-          </View>
-      </View>
-
-      <View style = {[styles.Profile_Block]}>
-          <View>
-            <Text style = {styles.TitleText}>Weight:</Text>
-          </View>
-
-          <View>
-            <TextInput
-            style = {styles.InputText}
-            placeholder = {this.weight}
-            placeholderTextColor = 'black'
-            onChangeText={(text) => this.handleText(text)}
-            blurOnSubmit
-            keyboardType='numeric'/>  
-          </View>
-      </View>
-
-      <View style = {[styles.Profile_Block]}>
-          <View>
-            <Text style = {styles.TitleText}>Sports:</Text>
-          </View>
-
-          <View>
-            <TextInput
-            style = {styles.InputText}
-            placeholder = {this.sports}
-            placeholderTextColor = 'black'
-            onChangeText={(text) => this.handleText(text)}
-            blurOnSubmit/>
-          </View>
-      </View>  
-     
-    </View>
     );
   }
 }
-
-
 const styles = StyleSheet.create({
-    Profile_Block:{ 
-        textAlign:'center',
-        textAlignVertical:'center',
-        backgroundColor:"white",
-        width: Dimensions.get("window").width/1.05,
-        height:Dimensions.get("window").height/6.5,
-        borderRadius:20,
-        flexDirection:'row',
-        justifyContent:'center',
-    },
-    TitleText:{
-        paddingTop:50,
-        color:"#459fed",
-        fontSize:35,
-        fontWeight:'700',
-    },
-    InputText:{
-      paddingTop:50,
-      color:"black",
-      fontSize:35,
-      fontWeight:'700',
-    }
-});
+  BlockStyle:{
+      alignSelf:'center',
+      flexDirection:'row',
+      justifyContent:'center',
+      backgroundColor:'#fff',
+      width:'90%',
+      height:120,
+      padding:30,
+      paddingBottom:22,
+      borderRadius:10,
+      shadowOpacity:80,
+      elevation:15,
+      marginTop:20
+  },
+  TextStyle:{
+      fontSize:23,
+      color:'#424242',
+      marginTop:10,
+  }
+}
+)
+
+export default Profile;
+
+
 

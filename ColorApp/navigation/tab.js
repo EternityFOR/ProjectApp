@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Scan from '../Screens/Scan';
 import BodyState from '../Screens/BodyState';
 import Profile from '../Screens/Profile';
-import Setting from '../Screens/Setting';
+import Contact from '../Screens/Contact';
 import Camera from '../Camera/Camera';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { StyleSheet,View, Text } from 'react-native';
@@ -29,7 +29,7 @@ export default function App() {
     <Tab.Navigator
       initialRouteName="Scan"
       screenOptions={{
-        tabBarActiveTintColor: '#e91e63',
+        tabBarActiveTintColor: '#0073E5',
       }}>
       <Tab.Screen
         name="Scan"
@@ -50,9 +50,9 @@ export default function App() {
       />
 
       <Tab.Screen
-        name="Setting"
-        component={Setting}
-        options={styles.Setting_Title_Bottom}
+        name="Contact"
+        component={Contact}
+        options={styles.Contact_Title_Bottom}
       />
 
     </Tab.Navigator>
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
       <Icon name={'home-outline'} color={color} size={size} />
     ),
     headerStyle: {
-      backgroundColor: '#31b5ed',
+      backgroundColor: '#3bc4ae',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
       <Icon name="body-outline" color={color} size={size} />
     ),
     headerStyle: {
-      backgroundColor: '#31b5ed',
+      backgroundColor: '#3bc4ae',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
       <Icon name="options-outline" color={color} size={size} />
     ),
     headerStyle: {
-      backgroundColor: '#31b5ed',
+      backgroundColor: '#3bc4ae',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
@@ -102,13 +102,13 @@ const styles = StyleSheet.create({
       fontSize: 35,
     },
   },
-  Setting_Title_Bottom: {
-    tabBarLabel: 'Setting',
+  Contact_Title_Bottom: {
+    tabBarLabel: 'Contact',
     tabBarIcon: ({ color, size }) => (
-      <Icon name="settings-outline" color={color} size={size} />
+      <Icon name="call-outline" color={color} size={size} />
     ),
     headerStyle: {
-      backgroundColor: '#31b5ed',
+      backgroundColor: '#3bc4ae',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {

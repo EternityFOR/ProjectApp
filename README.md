@@ -27,7 +27,15 @@ Version3:
 Version4:
 
 + Camera Function
+
 + New Data Page UI
+
+-----
+
+Version5:
++ New Profile Page UI
++ New Contact Page UI
+---
 
 
 
