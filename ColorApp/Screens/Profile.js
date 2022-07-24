@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View,Dimensions,TextInput,ScrollView,TouchableHighlight,TouchableOpacity,Image} from 'react-native';
+import { StyleSheet, Text, View,Dimensions,TextInput,ScrollView,TouchableOpacity,Image} from 'react-native';
 
 class Profile extends Component {
   render(){
     return (
-      <View>
+      <View style = {{backgroundColor:'#fff'}}>
       <ScrollView>
         <View style = {{padding:10,width:'100%',backgroundColor:'#000',height:150}}>
           <TouchableOpacity>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-import Scan from '../Screens/Scan';
-import BodyState from '../Screens/BodyState';
-import Profile from '../Screens/Profile';
-import Contact from '../Screens/Contact';
-import Camera from '../Camera/Camera';
+import Scan from '../../Screens/Scan';
+import BodyState from '../../Screens/BodyState';
+import Profile from '../../Screens/Profile';
+import Contact from '../../Screens/Contact';
+import Camera from '../../src/navigation/Camera';
+import Question from '../../src/navigation/Question';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { StyleSheet,View, Text } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +18,16 @@ function Cam() {
     screenOptions={{headerShown:false}}>
       <Stack.Screen name="Scan2" component={Scan}/>
       <Stack.Screen name="Cam"  component={Camera} />
+    </Stack.Navigator>
+  );
+}
+
+function Question2() {
+  return (
+    <Stack.Navigator      
+    screenOptions={{headerShown:false}}>
+      <Stack.Screen name="Contact2" component={Contact}/>
+      <Stack.Screen name="Question" component={Question} />
     </Stack.Navigator>
   );
 }
@@ -51,7 +61,7 @@ export default function App() {
 
       <Tab.Screen
         name="Contact"
-        component={Contact}
+        component={Question2}
         options={styles.Contact_Title_Bottom}
       />
 

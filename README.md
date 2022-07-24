@@ -37,5 +37,11 @@ Version5:
 + New Contact Page UI
 ---
 
+Version6:
 
++ Common Questions Page
+
++ Rearrange files
+
+---
 

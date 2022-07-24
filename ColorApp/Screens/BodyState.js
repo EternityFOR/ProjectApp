@@ -6,7 +6,7 @@ function BodyState ({navigation}) {
     return(
  <Root>
   <ScrollView>
-    <View>
+    <View style = {{backgroundColor:'#fff'}}>
         <TouchableOpacity
             onPress={() =>
               Popup.show({
@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
         marginVertical: "5%",
         marginBottom: 6,
         minWidth: "95%",
+        elevation:20,
     },
     TimeText:
     {
