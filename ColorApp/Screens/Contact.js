@@ -43,7 +43,7 @@ function Contact ({navigation}) {
 
         <View style={styles.QuestionStyle}>
         <TouchableHighlight onPress={() => navigation.navigate("Question")}
-        underlayColor='#fff'>
+        underlayColor="transparent">
          <View style={{flexDirection:'row', alignItems: 'center',}}>
           <Image
           style={{width: 50, height: 50}}

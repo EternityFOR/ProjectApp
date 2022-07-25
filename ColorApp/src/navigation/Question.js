@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     marginHorizontal: 5,
     borderRadius:20,
-    elevation:15,
+    elevation:5,
   },
   headerText: {
     textAlign: 'center',

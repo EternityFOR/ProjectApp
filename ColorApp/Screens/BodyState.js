@@ -6,7 +6,7 @@ function BodyState ({navigation}) {
     return(
  <Root>
   <ScrollView>
-    <View style = {{backgroundColor:'#fff'}}>
+    <View>
         <TouchableOpacity
             onPress={() =>
               Popup.show({

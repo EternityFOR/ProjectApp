@@ -6,7 +6,7 @@ function Scan ({navigation}) {
     return(
       <View  style={{flex:1,backgroundColor:'#fff'}}>
         <View style={styles.Step_Style}>
-          <Text style = {styles.Next_Text}>
+          <Text style = {styles.Step_Text}>
             First Step
           </Text>
         </View>
@@ -16,12 +16,12 @@ function Scan ({navigation}) {
           </Text>
           <View style={styles.Next_Back_Style}>
             <TouchableHighlight onPress={() => navigation.navigate("Scan2")}
-            underlayColor='#6de8d1'>
+            underlayColor="transparent">
             <Text style = {styles.Back_Text}>Back</Text>
             </TouchableHighlight>
 
             <TouchableHighlight onPress={() => navigation.navigate("Step2")}
-            underlayColor='#6de8d1'>
+            underlayColor="transparent">
             <Text style = {styles.Next_Text}>Next</Text> 
             </TouchableHighlight>
           </View>

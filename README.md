@@ -51,3 +51,8 @@ Version7:
 
 ---
 
+Version8
+
++ Add A frame in Camera Page
++ Other small adjustments
+

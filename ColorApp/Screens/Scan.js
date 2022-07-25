@@ -6,7 +6,7 @@ function Scan ({navigation}) {
       <View  style={{flex:1,backgroundColor:'#fff'}}>
         <View style={styles.QuestionStyle}>
         <TouchableHighlight onPress={() => navigation.navigate("Step1")}
-        underlayColor='#fff'>
+        underlayColor="transparent">
          <View style={{flexDirection:'row', alignItems: 'center',}}>
           <Image
           style={{width: 50, height: 50}}
