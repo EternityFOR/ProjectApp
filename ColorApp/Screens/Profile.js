@@ -34,7 +34,7 @@ class Profile extends Component {
         </View>
 
 
-        <View style = {[styles.BlockStyle,{marginBottom:60}]}>
+        <View style = {[styles.BlockStyle,{marginBottom:100}]}>
         <Image source = {require('../src/assets/Sport.png')} 
         style = {{width:50,height:50}}></Image>
         <Text style= {styles.TextStyle}> Sport:Badminton </Text>

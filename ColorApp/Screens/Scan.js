@@ -1,9 +1,21 @@
 import * as React from 'react';
-import { StyleSheet, View, Image,Button} from 'react-native';
+import { StyleSheet, View, Image,Button,TouchableHighlight} from 'react-native';
 
 function Scan ({navigation}) {
     return(
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center' ,backgroundColor:'#fff'}}>
+      <View  style={{flex:1,backgroundColor:'#fff'}}>
+        <View style={styles.QuestionStyle}>
+        <TouchableHighlight onPress={() => navigation.navigate("Step1")}
+        underlayColor='#fff'>
+         <View style={{flexDirection:'row', alignItems: 'center',}}>
+          <Image
+          style={{width: 50, height: 50}}
+          source={require('../src/assets/Questions.png')}/>
+         </View>
+        </TouchableHighlight>
+        </View>
+
+        <View style={styles.ScanStyle}>
           <Image style = {styles.imagestyle} 
                  source = {require('../src/assets/scan.png')} />
           <Button
@@ -11,7 +23,8 @@ function Scan ({navigation}) {
           onPress={() => navigation.navigate("Cam")}
           />
         </View>
-    );
+      </View>
+    )
 }
 
 
@@ -22,6 +35,16 @@ const styles = StyleSheet.create({
             resizeMode: 'cover',
             resizeMethod:'contain',
           },
+    ScanStyle:
+    {
+      flex:2.2,
+      alignItems:'center',
+      elevation:40,
+    },
+    QuestionStyle:{
+      flex:1,
+      alignItems:'flex-start',
+    }
 })
 
 export default Scan;

@@ -7,6 +7,9 @@ import Profile from '../../Screens/Profile';
 import Contact from '../../Screens/Contact';
 import Camera from '../../src/navigation/Camera';
 import Question from '../../src/navigation/Question';
+import step1 from './Guide/Step1';
+import step2 from './Guide/Step2';
+import step3 from './Guide/Step3';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {StyleSheet} from 'react-native';
 
@@ -18,6 +21,9 @@ function Cam() {
     screenOptions={{headerShown:false}}>
       <Stack.Screen name="Scan2" component={Scan}/>
       <Stack.Screen name="Cam"  component={Camera} />
+      <Stack.Screen name="Step1" component={step1} />
+      <Stack.Screen name="Step2" component={step2} />
+      <Stack.Screen name="Step3" component={step3} />
     </Stack.Navigator>
   );
 }
@@ -31,6 +37,7 @@ function Question2() {
     </Stack.Navigator>
   );
 }
+
 
 const Tab = createBottomTabNavigator();
 

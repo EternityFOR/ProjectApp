@@ -95,11 +95,11 @@ const styles = StyleSheet.create({
 
   headerBlock: { 
     backgroundColor: '#F5FCFF',
-    padding: 30,
-    marginVertical: 30,
+    padding: 20,
+    marginVertical: 20,
     marginHorizontal: 5,
     borderRadius:20,
-    elevation:18,
+    elevation:15,
   },
   headerText: {
     textAlign: 'center',

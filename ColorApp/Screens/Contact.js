@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View,ScrollView,Image,TouchableHighlight,Linking} from 'react-native';
 function Contact ({navigation}) {
     return (
-      <View style = {{backgroundColor:'#fff'}}>
+      <View style = {{flex:1,backgroundColor:'#fff'}}>
       <ScrollView>
         <View style = {{alignItems:'center',elevation:18}}>
-            <Text style = {{fontSize:30,fontWeight:'800',paddingTop:80}}> Greater Bay Biotechnology </Text>
+            <Text style = {{fontSize:30,fontWeight:'800',paddingTop:80}}> 
+            Greater Bay Biotechnology 
+            </Text>
             <Text style = {{fontSize:15,fontWeight:'bold',color:'grey',paddingTop:30}}>
             If you have any questions, fell free to contact us.
             </Text>
@@ -40,7 +42,8 @@ function Contact ({navigation}) {
         </View>
 
         <View style={styles.QuestionStyle}>
-        <TouchableHighlight onPress={() => navigation.navigate("Question")}>
+        <TouchableHighlight onPress={() => navigation.navigate("Question")}
+        underlayColor='#fff'>
          <View style={{flexDirection:'row', alignItems: 'center',}}>
           <Image
           style={{width: 50, height: 50}}
@@ -52,7 +55,7 @@ function Contact ({navigation}) {
       </ScrollView>
       </View>
     )
-};
+}
 
 const styles = StyleSheet.create({
   BlockStyle:{
@@ -70,10 +73,10 @@ const styles = StyleSheet.create({
       alignSelf:'center',
   },
   QuestionStyle:{
-    flex: 1,
     justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
+    paddingBottom:50,
   }
 }
 )
